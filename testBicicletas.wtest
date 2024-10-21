@@ -1,0 +1,87 @@
+import bicicletas.*
+import accesorios.*
+
+
+describe "test de bicicletas" {
+
+  const bicicleta1 = new Bicicletas(rodado = 28,largo = 150,marca = "Olmo",accesorios = [farolito]) 
+
+  test "es de 85 la altura de la bicicleta1" {
+    assert.equals(85, bicicleta1.altura())
+  }
+
+  test "es de 34 la velocidad crucero de la bicicleta1" {
+    assert.equals(34, bicicleta1.velocidadDeCrucero())
+  }
+
+  test "es de 0 la carga de la bicicleta1" {
+    assert.equals(0, bicicleta1.cargaDeBici())
+  }
+
+  test "es de 14.5 el peso de la bicicleta1" {
+    assert.equals(14.5, bicicleta1.pesoDeBici())
+  }
+
+  test "la bicicleta1 tiene luz" {
+    assert.that(bicicleta1.tieneLuz())
+  }
+
+  test "la bicicleta1 tiene 1 accesorio liviano" {
+    assert.equals(1, bicicleta1.accesoriosLivianos())
+  }
+
+  const morral1 = new MorralDeBici(largo = 21,tieneOjoDeGato = true)
+  const canasto1 = new Canasto(volumen = 8)  
+  const bicicleta2 = new Bicicletas(rodado = 26,largo = 110,marca = "Legnano",accesorios = [farolito,canasto1,morral1])
+
+  test "es de 80 la altura de la bicicleta2" {
+    assert.equals(80, bicicleta2.altura())
+  }
+
+  test "es de 28 la velocidad crucero de la bicicleta2" {
+    assert.equals(28, bicicleta2.velocidadDeCrucero())
+  }
+
+  test "es de 23 la carga de la bicicleta2" {
+    assert.equals(23, bicicleta2.cargaDeBici())
+  }
+
+  test "es de 15.5 el peso de la bicicleta2" {
+    assert.equals(15.5, bicicleta2.pesoDeBici())
+  }
+
+  test "la bicicleta2 tiene luz" {
+    assert.that(bicicleta2.tieneLuz())
+  }
+
+  test "la bicicleta2 tiene 2 accesorio liviano" {
+    assert.equals(2, bicicleta2.accesoriosLivianos())
+  }
+
+  const morral2 = new MorralDeBici(largo = 6,tieneOjoDeGato = false)  
+  const bicicleta3 = new Bicicletas(rodado = 20,largo = 90,marca = "Legnano",accesorios = [morral2])
+
+  test "es de 65 la altura de la bicicleta3" {
+    assert.equals(65, bicicleta3.altura())
+  }
+
+  test "es de 22 la velocidad crucero de la bicicleta3" {
+    assert.equals(22, bicicleta3.velocidadDeCrucero())
+  }
+
+  test "es de 2 la carga de la bicicleta3" {
+    assert.equals(2, bicicleta3.cargaDeBici())
+  }
+
+  test "es de 11.2 el peso de la bicicleta3" {
+    assert.equals(11.2, bicicleta3.pesoDeBici())
+  }
+
+  test "la bicicleta3 no tiene luz" {
+    assert.notThat(bicicleta3.tieneLuz())
+  }
+
+  test "la bicicleta3 tiene 0 accesorio liviano" {
+    assert.equals(0, bicicleta3.accesoriosLivianos())
+  }
+}
